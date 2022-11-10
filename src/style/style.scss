@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+$roseColor: rgb(252 209 216);
+$darkroseColor: rgb(124 78 81);
+$normalFont: "Playfair Display", serif;
+$forTitleFont: "Libre Baskerville", serif;
+$forLogoFont: "Dancing Script", cursive;
+$border-px: 12px;
+#header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background-color: $roseColor;
+  border-bottom: 1px solid $darkroseColor;
+  .logoDiv {
+    text-align: center;
+    position: relative;
+    .logoH1 {
+      font-size: 25px;
+      font-family: $normalFont;
+      font-weight: 600;
+    }
+    .logoStudio {
+      font-family: $forTitleFont;
+      font-size: 13px;
+      letter-spacing: 15px;
+      position: absolute;
+      left: 29px;
+      top: 27px;
+    }
+  }
+}
+#main {
+  .welcomeText {
+    height: 150px;
+    width: 100%;
+    background-color: $roseColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .welcomeH1 {
+      font-size: 75px;
+      word-spacing: 21px;
+      letter-spacing: 5px;
+      font-family: $forLogoFont;
+      color: $darkroseColor;
+    }
+  }
+  .welcomePic {
+    width: 100%;
+    height: 400px;
+    .welcomeImg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 75%;
+    }
+  }
+}
+#products {
+  width: 100%;
+  background-color: $roseColor;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto;
+  padding: 20px;
+  gap: 30px;
+  .product-one {
+    width: 300px;
+    height: 350px;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    border-radius: $border-px;
+    &:hover .oneInfoDiv {
+      bottom: 0px;
+      transition: 0.5s;
+    }
+    &:hover .oneImgDiv {
+      transform: scale(1.3);
+      transition: 0.5s;
+    }
+    .oneImgDiv {
+      width: 100%;
+      height: 100%;
+      transition: 0.5s;
+      .oneImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .oneInfoDiv {
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.123);
+      display: flex;
+      padding: 10px;
+      justify-content: space-evenly;
+      position: absolute;
+      bottom: -500px;
+      z-index: 1;
+      transition: 0.5s;
+    }
+  }
+}
