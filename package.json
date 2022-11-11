@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    
-    "start" : "json-server db.json -p 8888 -w true",
+    "start": "json-server db.json -p 8888 -w true",
     "wbpack": "npx webpack"
   },
   "keywords": [],
@@ -14,5 +13,8 @@
   "devDependencies": {
     "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "axios": "^1.1.3"
   }
 }
