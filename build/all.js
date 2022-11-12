@@ -41,6 +41,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/js/cart.js":
+/*!************************!*\
+  !*** ./src/js/cart.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ cart)\n/* harmony export */ });\n/* harmony import */ var _cartUI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cartUI */ \"./src/js/cartUI.js\");\n\r\n\r\nfunction cart() {\r\n  const cartRoot = document.getElementById(\"mainCart\");\r\n  console.log(cartRoot);\r\n  const data = JSON.parse(localStorage.getItem(\"product\"));\r\n  console.log(\"h111\");\r\n  data.forEach((flower) => (0,_cartUI__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(cartRoot, flower));\r\n}\r\n\n\n//# sourceURL=webpack://group-work-4/./src/js/cart.js?");
+
+/***/ }),
+
+/***/ "./src/js/cartUI.js":
+/*!**************************!*\
+  !*** ./src/js/cartUI.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createFlowerCart)\n/* harmony export */ });\nfunction createFlowerCart(parent, flower) {\r\n  parent.innerHTML += `\r\n        <div class=\"cart\">\r\n            <div class=\"imgAndTitle\">\r\n                <div class=\"infoDiv\">\r\n                    <h1 class=\"titleH1\">${flower.title}</h1>\r\n                </div>\r\n                <div class=\"imgDiv\">\r\n                    <img\r\n                    src= ${flower.img}\r\n                    alt=${flower.title}\r\n                   \r\n                    class=\"cartOneImg\"\r\n                    />\r\n                </div>\r\n            </div>\r\n            <div class=\"priceDiv\">\r\n                <h1 class=\"priceH1\">PRICE</h1>\r\n                <h1 class=\"\" priceH1>${flower.price}</h1>\r\n            </div>\r\n            <div class=\"buttonDiv\">\r\n                <div class=\"heightBtn\">\r\n                    <label for=\"cars\">Choose height</label>\r\n                    <select name=\"height\" id=\"height\">\r\n                        ${flower.height.map(\r\n                          (heighta) =>\r\n                            ` <option value=${heighta}>${heighta}</option>`\r\n                        )}\r\n                        \r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <div class=\"quantBtn\">\r\n                <h1 class=\"quantH1\">quantity</h1>\r\n                <div class=\"incrDec\">\r\n                    <button class=\"incrBtn\">+</button>\r\n                    <p class=\"quantP\">${flower.quantity}</p>\r\n                    <button class=\"decrBtn\">-</button>\r\n                </div>\r\n            </div>\r\n            <div class=\"totalDiv\">\r\n                <h1 class=\"totalH1\">TOTAL</h1>\r\n                <h3 class=\"totalPriceH3\">300$</h3>\r\n            </div>\r\n        </div>\r\n`;\r\n}\r\n\n\n//# sourceURL=webpack://group-work-4/./src/js/cartUI.js?");
+
+/***/ }),
+
 /***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
@@ -48,7 +70,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _productCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./productCard */ \"./src/js/productCard.js\");\n/* harmony import */ var _helper_request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helper/request */ \"./src/helper/request.js\");\n/* harmony import */ var _helper_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/api */ \"./src/helper/api.js\");\n\r\n\r\n\r\n\r\n\r\nconst productsDiv = document.getElementById(\"products\");\r\nconst cartBtn = document.querySelector(\".cart\");\r\n\r\n(0,_helper_request__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(\"GET\", _helper_api__WEBPACK_IMPORTED_MODULE_2__[\"default\"]).then((data) => {\r\n  data.forEach((data) => (0,_productCard__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(productsDiv, data));\r\n  (0,_productCard__WEBPACK_IMPORTED_MODULE_0__.click)(data);\r\n});\r\n\r\ncartBtn.addEventListener(\"click\", (e) => {\r\n  window.open(\"src/html/cart.html\", \"_blank\");\r\n  //   location.href = \"src/html/cart.html\";\r\n});\r\n\n\n//# sourceURL=webpack://group-work-4/./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _productCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./productCard */ \"./src/js/productCard.js\");\n/* harmony import */ var _cart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cart.js */ \"./src/js/cart.js\");\n/* harmony import */ var _helper_request__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helper/request */ \"./src/helper/request.js\");\n/* harmony import */ var _helper_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helper/api */ \"./src/helper/api.js\");\n\r\n\r\n\r\n\r\n\r\n\r\nconst productsDiv = document.getElementById(\"products\");\r\nconst cartBtn = document.querySelector(\".cart\");\r\n\r\n(0,_helper_request__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"GET\", _helper_api__WEBPACK_IMPORTED_MODULE_3__[\"default\"]).then((data) => {\r\n  data.forEach((data) => (0,_productCard__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(productsDiv, data));\r\n  (0,_productCard__WEBPACK_IMPORTED_MODULE_0__.click)(data);\r\n});\r\n\r\ncartBtn.addEventListener(\"click\", (e) => {\r\n  document.getElementById(\"main\").remove();\r\n  document.getElementById(\"products\").remove();\r\n  const mainCart = document.createElement(\"div\");\r\n  mainCart.id = \"mainCart\";\r\n  document.body.append(mainCart);\r\n  (0,_cart_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n});\r\n\n\n//# sourceURL=webpack://group-work-4/./src/js/index.js?");
 
 /***/ }),
 
@@ -59,7 +81,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _pro
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"click\": () => (/* binding */ click),\n/* harmony export */   \"default\": () => (/* binding */ createCard)\n/* harmony export */ });\nfunction createCard(parent, data) {\r\n  parent.innerHTML += `\r\n  <div class=\"product-one\">\r\n  <div class=\"oneImgDiv\">\r\n    <img\r\n      class=\"oneImg\"\r\n      src=${data.img}\r\n      alt=\"\"\r\n    />\r\n  </div>\r\n  <div class=\"oneInfoDiv\">\r\n    <h1 class=\"oneTitle\">${data.title}</h1>\r\n    <p>${data.price}</p>\r\n    <button class=\"oneBtn\">Add to Cart</button>\r\n  </div>\r\n</div>\r\n`;\r\n}\r\nfunction click(data) {\r\n  const btnCart = document.querySelectorAll(\".oneBtn\");\r\n  let prod = [];\r\n  btnCart.forEach((item, i) =>\r\n    item.addEventListener(\"click\", (e) => {\r\n      console.log(prod);\r\n      prod.push(data[i]);\r\n      addToLocal([...new Set(prod)]);\r\n    })\r\n  );\r\n}\r\nfunction addToLocal(info) {\r\n  localStorage.setItem(\"product\", JSON.stringify(info));\r\n}\r\n\n\n//# sourceURL=webpack://group-work-4/./src/js/productCard.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"click\": () => (/* binding */ click),\n/* harmony export */   \"default\": () => (/* binding */ createCard)\n/* harmony export */ });\nfunction createCard(parent, data) {\r\n  parent.innerHTML += `\r\n  <div class=\"product-one\">\r\n  <div class=\"oneImgDiv\">\r\n    <img\r\n      class=\"oneImg\"\r\n      src=${data.img}\r\n      alt=\"\"\r\n    />\r\n  </div>\r\n  <div class=\"oneInfoDiv\">\r\n    <h1 class=\"oneTitle\">${data.title}</h1>\r\n    <p>${data.price}</p>\r\n    <button class=\"oneBtn\">Add to Cart</button>\r\n  </div>\r\n</div>\r\n`;\r\n}\r\nfunction click(data) {\r\n  const btnCart = document.querySelectorAll(\".oneBtn\");\r\n  const dataStor = JSON.parse(localStorage.getItem(\"product\"));\r\n  let prod = [];\r\n  btnCart.forEach((item, i) =>\r\n    item.addEventListener(\"click\", (e) => {\r\n      if (dataStor) {\r\n        prod = [...dataStor];\r\n        localStorage.clear();\r\n      }\r\n      prod.push(data[i]);\r\n      addToLocal([...new Set(prod)]);\r\n    })\r\n  );\r\n}\r\nfunction addToLocal(info) {\r\n  localStorage.setItem(\"product\", JSON.stringify(info));\r\n}\r\n\n\n//# sourceURL=webpack://group-work-4/./src/js/productCard.js?");
 
 /***/ }),
 

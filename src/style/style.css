@@ -110,4 +110,28 @@
   bottom: -500px;
   z-index: 1;
   transition: 0.5s;
+}
+
+#mainCart .cart {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 350px;
+  padding: 10px;
+}
+#mainCart .cart .imgAndTitle .infoDiv {
+  padding: 5px;
+}
+#mainCart .cart .imgAndTitle .imgDiv {
+  width: 250px;
+  height: 300px;
+}
+#mainCart .cart .imgAndTitle .imgDiv .cartOneImg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#mainCart .cart .quantBtn .incrDec {
+  display: flex;
 }/*# sourceMappingURL=style.css.map */

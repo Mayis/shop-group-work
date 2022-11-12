@@ -1,5 +1,6 @@
 import createCard, { click } from "./productCard";
 
+import cart from "./cart.js";
 import request from "../helper/request";
 import url from "../helper/api";
 
@@ -12,6 +13,10 @@ request("GET", url).then((data) => {
 });
 
 cartBtn.addEventListener("click", (e) => {
-  window.open("src/html/cart.html", "_blank");
-  //   location.href = "src/html/cart.html";
+  document.getElementById("main").remove();
+  document.getElementById("products").remove();
+  const mainCart = document.createElement("div");
+  mainCart.id = "mainCart";
+  document.body.append(mainCart);
+  cart();
 });

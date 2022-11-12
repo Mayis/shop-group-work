@@ -18,10 +18,14 @@ export default function createCard(parent, data) {
 }
 export function click(data) {
   const btnCart = document.querySelectorAll(".oneBtn");
+  const dataStor = JSON.parse(localStorage.getItem("product"));
   let prod = [];
   btnCart.forEach((item, i) =>
     item.addEventListener("click", (e) => {
-      console.log(prod);
+      if (dataStor) {
+        prod = [...dataStor];
+        localStorage.clear();
+      }
       prod.push(data[i]);
       addToLocal([...new Set(prod)]);
     })
